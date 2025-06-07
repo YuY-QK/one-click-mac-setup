@@ -1,4 +1,6 @@
-# **🚀 macOS 开发环境一键配置脚手架 (one-click-mac-setup)**
+[English](http://docs.google.com/README_EN.md) | **中文**
+
+# **🚀 macOS 开发环境一键配置脚手架**
 
 一款交互式、高可靠性的 macOS 开发环境一键配置脚手架脚本。旨在通过一行命令，全自动或半自动地完成新 Mac 的所有软件安装、环境配置和健康检查，极大提升您的工作效率。
 
@@ -21,16 +23,16 @@
 在您全新的 Mac 上打开终端，执行以下命令即可启动配置向导：
 
 ```
-bash -c "$(curl -fsSL https://raw.githubusercontent.com/YuY-QK/one-click-mac-setup/main/setup.sh)"
+bash \-c "$(curl \-fsSL https://raw.githubusercontent.com/YuY-QK/one-click-mac-setup/main/setup.sh)"
 ```
 
-**注意**: 请将上面的 你的用户名 和 你的仓库名 替换为您自己的 GitHub 信息。
+**注意**: 上述命令已配置为您的仓库地址。
 
 ## **🔧 高级用法：一键复刻配置**
 
 当您在一台电脑上完成配置并导出后，会得到 config\_export.sh 和 Brewfile\_export 两个文件。
 
-在另一台新电脑上，只需将**主脚本 (setup.sh)** 和这两个**配置文件**放在同一个目录下，然后运行主脚本：
+在另一台新电脑上，只需将**主脚本 (**setup.sh**)** 和这两个**配置文件**放在同一个目录下，然后运行主脚本：
 
 ```
 ./setup.sh
