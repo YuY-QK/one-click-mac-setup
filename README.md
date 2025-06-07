@@ -42,7 +42,19 @@ bash \-c "$(curl \-fsSL https://raw.githubusercontent.com/YuY-QK/one-click-mac-s
 
 ## **🛠️ 自定义**
 
-如果您想添加或修改内置的软件列表，只需编辑主脚本 setup.sh 中的 collect\_packages\_interactively 函数即可。
+如果您想添加或修改内置的软件列表，非常简单！只需编辑脚本顶部的 **`--- 软件列表定义 ---`** 部分即可。
+
+这些列表都是普通的 Bash 数组，格式为 `"包名:描述"`。
+
+例如，要向“常用沟通工具”类别中添加 **飞书(Lark)**，您只需找到 `COMMUNICATION_CASKS` 这一行，并像下面这样添加指定包名即可：
+
+```bash
+# 修改前
+declare -r -a COMMUNICATION_CASKS=("wechat:微信" "qq:QQ" "telegram-desktop:Telegram" "discord:游戏与社区语音聊天" "slack:团队协作与沟通平台")
+
+# 修改后
+declare -r -a COMMUNICATION_CASKS=("wechat:微信" "qq:QQ" "telegram-desktop:Telegram" "discord:游戏与社区语音聊天" "slack:团队协作与沟通平台" "lark:飞书 (Lark)")
+```
 
 ## **📄 许可证**
 
