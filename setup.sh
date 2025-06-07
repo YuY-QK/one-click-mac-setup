@@ -2,19 +2,18 @@
 
 #================================================================
 # SYNOPSIS (概要)
-#   macOS 开发环境一键配置脚本 (v3.6 终极完善版)
+#   macOS 开发环境一键配置脚本
 #
 # DESCRIPTION (描述)
 #   此脚本专为 macOS 设计，采用“配置先行”模式，通过交互式菜单收集您的所有需求，
 #   然后生成一份执行计划供您确认并导出。最后全自动地完成 Homebrew 的安装、软件配置、
-#   环境变量设置、安装后健康检查和自动重载 Shell，旨在提供极致、可靠的新 Mac
-#   初始化体验。
+#   环境变量设置、安装后健康检查和自动重载 Shell，旨在提供极致、可靠的新 Mac 初始化体验。
 #
-# NOTES (注意事项)
-#   作者: Gemini & User
-#   版本: 3.6
+# AUTHOR:  Yu
+# VERSION: 1.0
+# UPDATE:  2025/06/07
 #
-#   使用方法:
+# USAGE（使用方法）
 #   1. [可选] 创建外部软件列表 (Brewfile):
 #      在脚本同级目录下创建 Brewfile 文件，可被自动检测并用于安装。
 #
@@ -347,7 +346,7 @@ main() {
     
     filter_already_installed
     
-    # (已优化) 逐一安装并记录结果
+    # 逐一安装并记录结果
     for pkg in "${FORMULAS_TO_INSTALL[@]}"; do
         if run_with_spinner "正在安装 $pkg" 3 "brew install $pkg"; then PACKAGES_SUCCESS+=("$pkg"); else PACKAGES_FAILURE+=("$pkg"); fi
     done
@@ -377,7 +376,7 @@ main() {
 
     run_health_check
 
-    # (新) 最终总结报告
+    # 最终总结报告
     log "Displaying final summary report."; print_color "yellow" "\n==================== 安装总结报告 ===================="
     if [ ${#PACKAGES_SUCCESS[@]} -gt 0 ]; then print_color "green" "✔ 成功/已存在的软件包:"; for pkg in "${PACKAGES_SUCCESS[@]}"; do echo "  - $pkg"; done; fi
     if [ ${#PACKAGES_FAILURE[@]} -gt 0 ]; then print_color "red" "✘ 安装失败的软件包:"; for pkg in "${PACKAGES_FAILURE[@]}"; do echo "  - $pkg"; done; fi
