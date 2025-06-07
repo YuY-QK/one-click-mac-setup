@@ -1,4 +1,4 @@
-[English](http://docs.google.com/README_EN.md) | **中文**
+[English]([http://docs.google.com/README_EN.md](https://github.com/YuY-QK/one-click-mac-setup/blob/main/README_EN.md)) | **中文**
 
 # **🚀 macOS 开发环境一键配置脚手架**
 
