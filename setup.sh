@@ -57,12 +57,12 @@ declare -a PACKAGES_FAILURE
 declare -a HEALTH_CHECK_RESULTS
 
 # --- 软件列表定义 (兼容旧版 Bash, 格式 "key:description") ---
-declare -r -a DEV_TOOLS_FORMULAS=("git:版本控制" "node:JS 运行环境" "java:Java 开发环境" "flutter:跨平台应用框架" "fvm:Flutter 版本管理器" "gradle:构建自动化工具")
-declare -r -a DEV_TOOLS_CASKS=("visual-studio-code:代码编辑器" "android-studio:安卓官方 IDE" "docker:容器化平台" "sublime-text:轻量代码编辑器" "jetbrains-toolbox:JetBrains 全家桶")
-declare -r -a BROWSERS_CASKS=("google-chrome:谷歌浏览器" "firefox:火狐浏览器" "microsoft-edge-dev:Edge 开发者版" "arc:Arc 浏览器")
-declare -r -a COMMUNICATION_CASKS=("wechat:微信" "qq:QQ" "telegram-desktop:Telegram" "discord:Discord" "slack:Slack")
-declare -r -a OFFICE_DESIGN_CASKS=("wps-office:WPS 办公套件" "figma:UI 设计工具" "obsidian:知识管理笔记")
-declare -r -a UTILS_CASKS=("iterm2:强大的终端" "rectangle:窗口管理工具" "stats:菜单栏系统监控" "the-unarchiver:全能解压工具" "raycast:启动器与效率工具")
+declare -r -a DEV_TOOLS_FORMULAS=("git:版本控制" "node:JS运行环境" "java:Java开发环境" "flutter:跨平台UI框架" "fvm:Flutter版本管理器" "gradle:构建自动化工具")
+declare -r -a DEV_TOOLS_CASKS=("visual-studio-code:VSCode代码编辑器" "android-studio:安卓IDE" "docker:容器化平台" "sublime-text:轻量代码编辑器" "jetbrains-toolbox:JetBrains 全家桶")
+declare -r -a BROWSERS_CASKS=("google-chrome:谷歌浏览器" "firefox:火狐浏览器" "microsoft-edge-dev:Edge开发者版" "arc:Arc浏览器")
+declare -r -a COMMUNICATION_CASKS=("wechat:微信" "qq:腾讯QQ" "discord:交流平台" "slack:沟通协作" "lark:飞书国际版" "dingtalk:钉钉" "wechatwork:企业微信")
+declare -r -a OFFICE_DESIGN_CASKS=("wps-office:WPS办公套件" "figma:UI设计工具" "obsidian:知识管理笔记" "notion:知识管理笔记")
+declare -r -a UTILS_CASKS=("iterm2:终端" "rectangle:窗口管理工具" "stats:菜单栏系统监控" "the-unarchiver:解压工具" "raycast:启动器与效率工具")
 
 
 # --- 辅助函数 ---
@@ -504,6 +504,9 @@ reload_shell() {
 
 # --- 主程序入口 ---
 main() {
+    # 优化 select 命令的提示符
+    PS3="$(print_color 'yellow' '请输入您的选项 (输入数字即可): ')"
+    
     setup_logging; log "======== Script Start v$SCRIPT_VERSION ========"
     print_color "yellow" "======== 欢迎使用 macOS 配置脚本 v$SCRIPT_VERSION ========"
     if [ "$(uname)" != "Darwin" ]; then log "Error: Not macOS."; print_color "red" "此脚本仅为 macOS 设计。"; exit 1; fi
