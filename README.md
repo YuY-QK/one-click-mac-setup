@@ -20,7 +20,9 @@
 
 在您全新的 Mac 上打开终端，执行以下命令即可启动配置向导：
 
-bash \-c "$(curl \-fsSL https://raw.githubusercontent.com/你的用户名/你的仓库名/main/setup.sh)"
+```
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/YuY-QK/one-click-mac-setup/main/setup.sh)"
+```
 
 **注意**: 请将上面的 你的用户名 和 你的仓库名 替换为您自己的 GitHub 信息。
 
@@ -30,7 +32,9 @@ bash \-c "$(curl \-fsSL https://raw.githubusercontent.com/你的用户名/你的
 
 在另一台新电脑上，只需将**主脚本 (setup.sh)** 和这两个**配置文件**放在同一个目录下，然后运行主脚本：
 
+```
 ./setup.sh
+```
 
 脚本会自动检测到配置文件，并询问您是否加载。确认后，它将跳过所有选择步骤，直接为您安装和配置一个完全相同的环境。
 
