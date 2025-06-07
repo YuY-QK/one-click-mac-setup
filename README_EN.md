@@ -1,5 +1,5 @@
 
-**English** | [中文](http://docs.google.com/README.md)
+**English** | [中文](https://github.com/YuY-QK/one-click-mac-setup/blob/main/README.md)
 
 # **🚀 macOS Development Environment One-Click Setup Script**
 
